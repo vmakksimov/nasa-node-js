@@ -1,4 +1,5 @@
 const { parse } = require('csv-parse');
+const { json } = require('express');
 const fs = require('fs');
 const path = require('path');
 
@@ -8,7 +9,6 @@ function isHabitablePlanet(planet) {
     return planet['koi_disposition'] === 'CONFIRMED'
         && planet['koi_insol'] > 0.36 && planet['koi_insol'] < 1.11
         && planet['koi_prad'] < 1.6;
-
 }
 
 function loadPlanetsData() {
@@ -35,9 +35,11 @@ function loadPlanetsData() {
     })
 }
 
-
+function getAllPlanets() {
+    return habitablePlanets;
+}
 
 module.exports = {
     loadPlanetsData,
-    planets: habitablePlanets,
+    getAllPlanets,
 }

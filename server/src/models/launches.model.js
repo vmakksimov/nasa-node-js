@@ -38,8 +38,21 @@ function addNewLaunch(launch) {
             success: true
         });
 }
+function existsLaunchWithId(laundId){
+    return launches.has(laundId);
+}
+function aborted(id) {
+    if (!launches.has(id)) {
+        launches.delete(id);
+        return true;
+    } else {
+        return false;
+    }
+}
 
 module.exports = {
     getAllLaunches,
     addNewLaunch,
+    aborted,
+    existsLaunchWithId
 }

@@ -1,4 +1,4 @@
-const { getAllLaunches, addNewLaunch } = require('../../models/launches.model');
+const { getAllLaunches, addNewLaunch, aborted, existsLaunchWithId } = require('../../models/launches.model');
 
 /**
  * Retrieves all launches from the system and returns them in JSON format with status 200.
@@ -31,8 +31,20 @@ function httpAddNewLaunch(req, res) {
     return res.status(201).json(launch);
 }
 
+function httpDeletelaunch(req, res) {
+    const launchId = req.params.id
+    aborted(launchId);
+    if(existsLaunchWithId(launchId)){
+        return res.status(201).json(aborted);
+    }else{
+        return res.status(404).json({error: 'Launch not found!'});
+    }
+
+}
+
 
 module.exports = {
     httpGetAllLaunches,
     httpAddNewLaunch,
+    httpDeletelaunch,
 }

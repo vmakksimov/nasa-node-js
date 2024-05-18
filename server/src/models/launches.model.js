@@ -41,18 +41,18 @@ function addNewLaunch(launch) {
 function existsLaunchWithId(laundId){
     return launches.has(laundId);
 }
-function aborted(id) {
-    if (!launches.has(id)) {
-        launches.delete(id);
-        return true;
-    } else {
-        return false;
+function abortLaunchById(id) {
+    if (existsLaunchWithId(id)) {
+        const aborted = launches.get(id);
+        aborted.upcoming = false;
+        aborted.success = false;
+        return aborted;
     }
 }
 
 module.exports = {
     getAllLaunches,
     addNewLaunch,
-    aborted,
+    abortLaunchById,
     existsLaunchWithId
 }

@@ -18,7 +18,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5"
   },
   "dependencies": {
     "mongoose": "^8.4.0"

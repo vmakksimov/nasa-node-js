@@ -56,7 +56,7 @@ describe("Test /POST Launch", () => {
         expect(response.body).toStrictEqual({error: 'Missing required fileds!'});
     })
 
-    test("It shoud respond with invalid launch date", async () => {
+    test("It shoud respond with invalid launch date 400", async () => {
         const response = await request(app)
             .post('/launches')
             .send(launchDataWithInvalidDate)

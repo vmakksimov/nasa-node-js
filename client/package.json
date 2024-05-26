@@ -13,7 +13,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "move build ../server/public",
+    "postbuild": "mv build ../server/public",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject"
   },

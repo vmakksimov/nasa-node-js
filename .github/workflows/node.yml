@@ -22,5 +22,4 @@ jobs:
       run: npm run install-both
     - name: Build FE
       run: npm run build --prefix client
-    - name: Build BE
-      run: npm start --prefix server
+  

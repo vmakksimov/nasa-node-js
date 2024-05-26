@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         node-version: [22.x]
-        mongodb-version: ['6.x', '7.x']
 
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +26,7 @@ jobs:
       - name: Start MongoDB
         uses: supercharge/mongodb-github-action@1.11.0
         with:
-            mongodb-version: ${{ matrix.mongodb-version }}
+            mongodb-version: latest
       - name: Build Dependencies
         run: npm install
       - name: Build Project

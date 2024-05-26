@@ -31,7 +31,7 @@ jobs:
         run: npm install
       - name: Build Project
         run: npm run install-both
-      - name: Build Both
-        run: npm run deploy
+      - name: Build FE
+        run: npm run build --prefix client
       - name: Build Test
         run: npm test

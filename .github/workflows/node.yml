@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js 22.x
@@ -16,8 +16,10 @@ jobs:
       with:
         node-version: 22.x
         cache: 'npm'
-    - name: Build project
+    - name: Build Dependencies
       run: npm install
+    - name: Build Project
+      run: npm run install-both
     - name: Build FE
       run: npm run build --prefix client
     - name: Build BE
